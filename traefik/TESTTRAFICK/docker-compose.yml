@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app1:
+    build: ./app1
+    image: app1_image
+    # ports:
+    #   - 7000:80
+    labels:
+      - traefik.http.routers.app1.rule=Path(`/app1/`)
+    networks:
+      - traefik
+  app3:
+    build: ./app3
+    image: app3_image
+    # ports:
+    #   - 7000:80
+    labels:
+      - traefik.http.routers.app3.rule=Path(`/app3/`)
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    driver: bridge      
+    

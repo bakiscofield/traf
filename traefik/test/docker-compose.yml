@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mon_app:
+    image: cherifa24/my_docker_hub:latest
+    container_name: mon_app
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mon_app.rule=Path(`/`)
+      - traefik.http.services.mon_app.loadbalancer.server.port=80

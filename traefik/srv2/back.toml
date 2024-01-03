@@ -1,0 +1,13 @@
+[http]
+	[http.routers]
+		[http.routers.bakiscofield_route]
+		entryPoints = ["web"]
+		service = "xavki"
+        rule = "Path(`/`)"
+[http.services]
+	[http.services.bakiscofield]
+		[http.services.bakiscofield.loadBalancer]
+			[[htp.services.bakiscofield.loadbalancer.servers]]
+				url ="http://127.0.0.1:8081"
+			[[htp.services.bakiscofield.loadbalancer.servers]]
+				url ="http://127.0.0.1:8082"
